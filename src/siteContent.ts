@@ -37,8 +37,13 @@ export const siteContent = {
   /** Shown in browser tab on the home page */
   pageTitle: "VT SASE | Society of Asian Scientists and Engineers",
 
+  /** Browser tab title for /about */
+  aboutPageTitle: "About Us | VT SASE",
+
   /** Browser tab title for /officers */
   officersPageTitle: "Meet The Officers | VT SASE",
+  /** Browser tab title for /sponsors */
+  sponsorsPageTitle: "Sponsors | VT SASE",
 
   /** Optional: logo in header. Add `public/images/logo.png` then set to "/images/logo.png" */
   headerLogoUrl: undefined as string | undefined,
@@ -46,6 +51,8 @@ export const siteContent = {
 
   nav: [
     { label: "Home", href: "/" },
+    { label: "About Us", href: "/about" },
+    { label: "Sponsors", href: "/sponsors" },
     //{ label: "About", href: "/#about" },
     //{ label: "Events", href: "/#events" },
     //{ label: "Mentorship", href: "/#mentorship" },
@@ -127,8 +134,54 @@ export const siteContent = {
     },
   ] satisfies OfferCard[],
 
+  about: {
+    kicker: "Who We Are",
+    headline: "About Us",
+    intro:
+      `SASE is dedicated to the advancement of Asian heritage scientists and engineers in education and employment so that they can achieve their full career potential.
+
+Through social events and professional development workshops with various companies, SASE encourages members to form lasting friendships, experience professional and personal growth, and contribute to our community. SASE also offers a mentorship program, service opportunities, and scholarships!
+
+SASE's mission is to:
+- Prepare scientists and engineers of Asian heritage for success in the global business world.
+- Celebrate diversity on campuses and in the workplace.
+- Provide opportunities for members to make contributions to their local communities.
+- Help members network and meet new people.
+
+SASE is open to students of all genders, majors, and ethnic backgrounds. Everyone is welcome! If you want to develop both professionally and socially, this is the student organization for you!`,
+    sections: [
+      {
+        title: "Our Mission",
+        body: "We empower members to develop professionally, lead with purpose, and uplift each other through mentorship and collaboration.",
+      },
+      {
+        title: "What We Do",
+        body: "From technical workshops to company events to service opportunities and mentor programs, we provide practical resources and a strong support network.",
+      },
+      {
+        title: "Who We Serve",
+        body: "All majors and backgrounds are welcome. We celebrate diversity and create an inclusive home for anyone interested in growth, service, and connection.",
+      },
+    ],
+  },
+
   boardIntro: {
     title: "Meet The Officers",
+  },
+
+  sponsors: {
+    kicker: "Our Partners",
+    headline: "Sponsors who support VT SASE.",
+    intro:
+    `The Virginia Tech SASE Chapter works to grow a safe and inclusive environment for our members while also creating career development opportunities for our members in preparation for navigating the professional world. If you would like to help further our goals, please consider becoming a sponsor today!`,
+    logos: [
+      "public/images/Texas-Instruments-Logo.png",
+      "public/images/SMECO-Logo.png",
+      "public/images/CMTA-1024x380.jpg",
+      "public/images/CAT-logo.png",
+      "public/images/Altec-Color.png",
+      "public/images/ABB_logo.svg_-1024x406.png",
+    ],
   },
 
   officers: [
