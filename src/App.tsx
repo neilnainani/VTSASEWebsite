@@ -5,6 +5,7 @@ import { HomePage } from "./pages/HomePage";
 import { AboutPage } from "./pages/AboutPage";
 import { OfficersPage } from "./pages/OfficersPage";
 import { SponsorsPage } from "./pages/SponsorsPage";
+import { StemConnectPage } from "./pages/StemConnectPage";
 
 export default function App() {
   return (
@@ -13,6 +14,7 @@ export default function App() {
         <Route element={<SiteLayout />}>
           <Route index element={<HomePage />} />
           <Route path="about" element={<AboutPage />} />
+          <Route path="stem-connect" element={<StemConnectPage />} />
           <Route path="sponsors" element={<SponsorsPage />} />
           <Route path="officers" element={<OfficersPage />} />
           <Route path="*" element={<Navigate to="/" replace />} />

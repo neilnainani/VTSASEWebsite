@@ -23,8 +23,8 @@ export type OfferCard = {
 export type Officer = {
   name: string;
   role: string;
-  /** Initials shown if photoUrl is not set */
-  initials: string;
+  /** Optional initials for legacy data; placeholder image is shown when photoUrl is missing */
+  initials?: string;
   /** Put files in /public/images/officers/ and use "/images/officers/jane-doe.jpg" */
   photoUrl?: string;
   /** LinkedIn or personal site */
@@ -32,6 +32,14 @@ export type Officer = {
 };
 
 export type Stat = { value: string; label: string };
+export type ConventionEvent = {
+  title: string;
+  details: string;
+};
+export type ConventionLogo = {
+  name: string;
+  image: string;
+};
 
 export const siteContent = {
   /** Shown in browser tab on the home page */
@@ -44,6 +52,8 @@ export const siteContent = {
   officersPageTitle: "Meet The Officers | VT SASE",
   /** Browser tab title for /sponsors */
   sponsorsPageTitle: "Sponsors | VT SASE",
+  /** Browser tab title for /stem-connect */
+  stemConnectPageTitle: "STEM Connect Convention | VT SASE",
 
   /** Optional: logo in header. Add `public/images/logo.png` then set to "/images/logo.png" */
   headerLogoUrl: undefined as string | undefined,
@@ -52,6 +62,7 @@ export const siteContent = {
   nav: [
     { label: "Home", href: "/" },
     { label: "About Us", href: "/about" },
+    { label: "STEM Connect", href: "/stem-connect" },
     { label: "Sponsors", href: "/sponsors" },
     //{ label: "About", href: "/#about" },
     //{ label: "Events", href: "/#events" },
@@ -95,17 +106,17 @@ export const siteContent = {
 
   upcomingEvents: [
     {
-      title: "St. Patrick's Day Potluck",
-      whenWhere: "March 24 • Goodwin Hall",
+      title: "Run For Remembrance",
+      whenWhere: "April 18 • War Memorial Hall",
       link: undefined,
     },
     {
-      title: "SASE Science Week",
-      whenWhere: "March 30 - April 3",
+      title: "The Big Clean",
+      whenWhere: "April 20",
     },
     {
-      title: "Mentor Mentee Bonding Week",
-      whenWhere: "April 6 - April 10",
+      title: "Relay For Life",
+      whenWhere: "April 24",
     },
   ] satisfies EventItem[],
 
@@ -184,11 +195,93 @@ SASE is open to students of all genders, majors, and ethnic backgrounds. Everyon
     ],
   },
 
+  stemConnect: {
+    kicker: "National Convention",
+    headline: "STEM Connect Convention 2026",
+    intro:
+      "VT SASE is heading to STEM Connect for three days of professional development, networking, and leadership programming with students, industry partners, and university teams from across the country.",
+    website: "https://stemconnect.events",
+    location: "Seattle, Washington",
+    dates: "October 1st-3rd",
+    plannedEvents: [
+      {
+        title: "Opening Ceremony and Keynote",
+        details:
+          "Kick off the convention with opening remarks and featured speakers discussing innovation, leadership, and emerging opportunities in STEM.",
+      },
+      {
+        title: "Career Fair and Employer Networking",
+        details:
+          "Connect directly with recruiters and engineering leaders during dedicated networking and recruiting sessions.",
+      },
+      {
+        title: "Technical and Professional Development Workshops",
+        details:
+          "Attend workshops focused on interview preparation, internship strategies, graduate pathways, and technical growth.",
+      },
+      {
+        title: "Leadership and Community Sessions",
+        details:
+          "Participate in chapter leadership tracks, mentorship conversations, and community-building discussions with peers nationwide.",
+      },
+    ] satisfies ConventionEvent[],
+    attendingLogos: [
+      { name: "Actalent", image: "/images/stem-connect/actalent.png" },
+      { name: "Blue Origin", image: "/images/stem-connect/blue-origin.png" },
+      { name: "BNSF Railway", image: "/images/stem-connect/bnsf-railway.png" },
+      { name: "Burns & McDonnell", image: "/images/stem-connect/burns-mcdonnell.png" },
+      { name: "Chemours", image: "/images/stem-connect/chemours.png" },
+      { name: "Chevron", image: "/images/stem-connect/chevron.png" },
+      { name: "Colorado School of Mines", image: "/images/stem-connect/colorado-school-of-mines.png" },
+      { name: "Columbia Engineering", image: "/images/stem-connect/columbia-engineering.png" },
+      { name: "Constellation", image: "/images/stem-connect/constellation.png" },
+      { name: "Esri", image: "/images/stem-connect/esri.png" },
+      { name: "Exelon", image: "/images/stem-connect/exelon.png" },
+      { name: "FIU Engineering and Computing", image: "/images/stem-connect/fiu-engineering.png" },
+      { name: "FM", image: "/images/stem-connect/fm.png" },
+      { name: "GE Aerospace", image: "/images/stem-connect/ge-aerospace.png" },
+      { name: "GE Vernova", image: "/images/stem-connect/ge-vernova.png" },
+      { name: "Gies College of Business", image: "/images/stem-connect/gies-college.png" },
+      { name: "Granite", image: "/images/stem-connect/granite.png" },
+      { name: "Honeywell", image: "/images/stem-connect/honeywell.png" },
+      { name: "Lehigh University", image: "/images/stem-connect/lehigh-university.png" },
+      { name: "Leidos", image: "/images/stem-connect/leidos.png" },
+      { name: "Mortenson", image: "/images/stem-connect/mortenson.png" },
+      { name: "New York ISO", image: "/images/stem-connect/new-york-iso.png" },
+      { name: "NYU Tandon School of Engineering", image: "/images/stem-connect/nyu-tandon.png" },
+      { name: "SRMC", image: "/images/stem-connect/srmc.png" },
+      { name: "Shell", image: "/images/stem-connect/shell.png" },
+      { name: "Southwire", image: "/images/stem-connect/southwire.png" },
+      { name: "Texas Department of Transportation", image: "/images/stem-connect/txdot.png" },
+      { name: "Mosaic", image: "/images/stem-connect/mosaic.png" },
+      { name: "Turner", image: "/images/stem-connect/turner.png" },
+      { name: "University of Pittsburgh Swanson School of Engineering", image: "/images/stem-connect/pitt-swanson.png" },
+      { name: "USC Viterbi School of Engineering", image: "/images/stem-connect/usc-viterbi.png" },
+      { name: "Wabtec", image: "/images/stem-connect/wabtec.png" },
+      { name: "WWT (World Wide Technology)", image: "/images/stem-connect/wwt.png" },
+    ] satisfies ConventionLogo[],
+  },
+
   officers: [
-    { name: "Deya Singh", role: "President", initials: "DS" },
-    { name: "Isabelle Vu", role: "Media Vice President", initials: "IV" },
-    { name: "Jairaj Sharma", role: "External Vice President", initials: "JS" },
-    { name: "Ritisha Ghimire Kshetri", role: "Internal Vice President", initials: "RGK" },
+    { name: "Deya Singh", role: "President", initials: "DS", photoUrl: "/images/officers/deya-singh.jpg" },
+    { name: "Isabelle Vu", role: "Media Vice President", initials: "IV", photoUrl: "/images/officers/isabelle-vu.jpg" },
+    { name: "Jairaj Sharma", role: "External Vice President", initials: "JS", photoUrl: "/images/officers/jairaj-sharma.jpg" },
+    { name: "Ritisha Ghimire Kshetri", role: "Internal Vice President", initials: "RGK", photoUrl: "/images/officers/ritisha-ghimire-kshetri.jpg" },
+    { name: "Placeholder", role: "External Task Force", initials: "P" },
+    { name: "Placeholder", role: "External Task Force", initials: "P" },
+    { name: "Placeholder", role: "Service Chair", initials: "P" },
+    { name: "Placeholder", role: "Service Chair", initials: "P" },
+    { name: "Placeholder", role: "Treasurer", initials: "P" },
+    { name: "Placeholder", role: "Secretary", initials: "P" },
+    { name: "Placeholder", role: "Internal Task Force", initials: "P" },
+    { name: "Placeholder", role: "Internal Task Force", initials: "P" },
+    { name: "Placeholder", role: "Public Relations", initials: "P" },
+    { name: "Placeholder", role: "Public Relations", initials: "P" },
+    { name: "Placeholder", role: "Public Relations", initials: "P" },
+    { name: "Placeholder", role: "Historian", initials: "P" },
+    { name: "Placeholder", role: "Historian", initials: "P" },
+    { name: "Neil Nainani", role: "Webmaster", initials: "NN", photoUrl: "/images/officers/neilnainaniheadshot.JPG" },
+    //Added headshot for myself to test how it would look with a real headshot
     //{ name: "Ritisha Ghimire Kshetri", role: "Internal Vice President", initials: "RGK" },
   ] satisfies Officer[],
 
